@@ -6,6 +6,11 @@ import {Repository} from "typeorm";
 @Injectable()
 export class ValidationService {
     constructor( @InjectRepository(ValidationEntity) private validationRepository: Repository<ValidationEntity> ) {}
+
+    /**
+     * Получение всего списка
+     * @returns {Promise<ValidationEntity[]>} список всей валидации
+     */
     getAll(): Promise<ValidationEntity[]> {
         return this.validationRepository.find();
     }

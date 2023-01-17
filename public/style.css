@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.header__wrapper {
+    padding: 1rem;
+    background-color: #274dff;
+    color: #fff;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.header__menu{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header__item:hover{
+    cursor: pointer;
+    color: #ddd;
+}
+
+.header__logo{
+    font-size: 1.4rem;
+}
+
+.main__wrapper{
+    padding: 2rem;
+    overflow-x: scroll;
+    max-width: 100%;
+}
+
+.table td, .table th{
+    border: 1px solid silver;
+    padding: 1rem;
+}
+
+.table tr th{
+    font-weight: 900;
+    background-color: #eee;
+}

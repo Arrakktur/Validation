@@ -5,8 +5,9 @@ import {ValidationService} from "./validation.service";
 import {ValidationController} from "./validation.controller";
 
 @Module({
-    // imports: [TypeOrmModule.forFeature([ValidationEntity])],
-    // providers: [ValidationService],
-    // controllers: [ValidationController],
+    imports: [TypeOrmModule.forFeature([ValidationEntity])],
+    providers: [ValidationService],
+    controllers: [ValidationController],
+    exports: [ValidationService],
 })
 export class ValidationModule {}

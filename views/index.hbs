@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;900&display=swap" rel="stylesheet">
+    <title>{{title}}</title>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                Validation
+            </div>
+            <div class="header__menu">
+                <div class="header__item">
+                    Поля валидации
+                </div>
+                <div class="header__item">
+                    Группы
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="main">
+        <div class="main__wrapper">
+            <p>
+                Список полей валидации:
+            </p>
+            <table class="main__table table">
+                <tr>
+                    <th>id</th>
+                    <th>Название</th>
+                    <th>Ключ</th>
+                    <th>Описание</th>
+                    <th>Рег. выражение</th>
+                </tr>
+                {{#each validation}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.key}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.regexp}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer></footer>
+</body>
+</html>
