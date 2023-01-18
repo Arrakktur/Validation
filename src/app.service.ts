@@ -7,10 +7,6 @@ export class AppService {
 
   constructor(private validationService: ValidationService) {}
 
-  getViewName(): string {
-    return 'index';
-  }
-
   getAllValidation(): Promise<ValidationEntity[]> {
     return this.validationService.getAll();
   }

@@ -7,6 +7,11 @@
     font-size: 0.9rem;
 }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .header__wrapper {
     padding: 1rem;
     background-color: #274dff;
@@ -31,15 +36,17 @@
     font-size: 1.4rem;
 }
 
+
 .main__wrapper{
     padding: 2rem;
-    overflow-x: scroll;
+    overflow-x: auto;
     max-width: 100%;
 }
 
 .table td, .table th{
     border: 1px solid silver;
     padding: 1rem;
+    overflow-x: auto;
 }
 
 .table tr th{

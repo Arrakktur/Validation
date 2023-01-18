@@ -2,15 +2,17 @@ import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {ValidationEntity} from "./validation.entity";
 import {Repository} from "typeorm";
+import {RemoveValidateDto} from "./dto/removeValidation.dto";
+import {AddValidateDto} from "./dto/addValidation.dto";
 
 @Injectable()
 export class ValidationService {
     constructor( @InjectRepository(ValidationEntity) private validationRepository: Repository<ValidationEntity> ) {}
 
-    /**
-     * Получение всего списка
-     * @returns {Promise<ValidationEntity[]>} список всей валидации
-     */
+    add(addValidationDto: AddValidateDto): Promise<ValidationEntity> {
+        return this.validationRepository.save(addValidationDto);
+    }
+
     getAll(): Promise<ValidationEntity[]> {
         return this.validationRepository.find();
     }
@@ -27,15 +29,15 @@ export class ValidationService {
         return this.validationRepository.findOneBy({key});
     }
 
-    getByGroup(groupId: number): Promise<ValidationEntity> {
-        return this.validationRepository.findOneBy({group: groupId});
+    getByGroup(groupId: number): Promise<ValidationEntity[]> {
+        return this.validationRepository.findBy({group: groupId});
     }
 
     getByRegexp(regexp: string): Promise<ValidationEntity> {
         return this.validationRepository.findOneBy({regexp});
     }
 
-    async remove(id: number): Promise<void> {
-        await this.validationRepository.delete(id);
+    async remove(removeValidateDto: RemoveValidateDto): Promise<void> {
+        await this.validationRepository.delete(removeValidateDto.id);
     }
 }
