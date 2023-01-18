@@ -36,35 +36,35 @@ export class ValidationController {
     @Delete('id/:id')
     @ApiOperation({summary: 'Удаление поля по id'})
     @ApiResponse({status: 200, description: 'Удаление поля по id'})
-    remove(@Body() removeValidateDto: RemoveValidateDto){
+    remove(@Body('id') removeValidateDto: RemoveValidateDto){
         this.validationService.remove(removeValidateDto);
     }
 
     @Get('name/:name')
     @ApiOperation({summary: 'Получение полей валидации по имени'})
     @ApiResponse({status: 200, description: 'Поля списка валидации по имени', type: ValidationEntity})
-    async getByName(@Param('name') param): Promise<ValidationEntity> {
+    async getByName(@Param('name') param: string): Promise<ValidationEntity> {
         return await this.validationService.getByName(param);
     }
 
     @Get('key/:key')
     @ApiOperation({summary: 'Получение полей валидации по ключу'})
     @ApiResponse({status: 200, description: 'Поля списка валидации по ключу', type: ValidationEntity})
-    async getByKey(@Param('key') param): Promise<ValidationEntity> {
+    async getByKey(@Param('key') param: string): Promise<ValidationEntity> {
         return await this.validationService.getByKey(param);
     }
 
     @Get('group/:group')
     @ApiOperation({summary: 'Получение полей валидации по id группы'})
     @ApiResponse({status: 200, description: 'Поля списка валидации по id группы', type: ValidationEntity, isArray: true})
-    async getByGroup(@Param('group') param): Promise<ValidationEntity[]> {
+    async getByGroup(@Param('group') param: number): Promise<ValidationEntity[]> {
         return await this.validationService.getByGroup(param);
     }
 
     @Get('regexp/:regexp')
     @ApiOperation({summary: 'Получение полей валидации по регулярному выражению'})
     @ApiResponse({status: 200, description: 'Поля списка валидации по регулярному выражению', type: ValidationEntity})
-    async getByRegexp(@Param('regexp') param): Promise<ValidationEntity> {
+    async getByRegexp(@Param('regexp') param: string): Promise<ValidationEntity> {
         return await this.validationService.getByRegexp(param);
     }
 }
