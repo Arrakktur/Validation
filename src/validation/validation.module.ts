@@ -3,9 +3,10 @@ import {TypeOrmModule} from "@nestjs/typeorm";
 import {ValidationEntity} from "./validation.entity";
 import {ValidationService} from "./validation.service";
 import {ValidationController} from "./validation.controller";
+import {ExceptionModule} from "../exception/exception.module";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([ValidationEntity])],
+    imports: [TypeOrmModule.forFeature([ValidationEntity]), ExceptionModule],
     providers: [ValidationService],
     controllers: [ValidationController],
     exports: [ValidationService],

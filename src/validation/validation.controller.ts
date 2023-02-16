@@ -67,4 +67,11 @@ export class ValidationController {
     async getByRegexp(@Param('regexp') param: string): Promise<ValidationEntity> {
         return await this.validationService.getByRegexp(param);
     }
+
+    @Get('validate/:value/:key')
+    @ApiOperation({summary: 'Валидация значений'})
+    @ApiResponse({status: 200, description: 'Валидация значения по ключу регулярного выражения'})
+    validate(@Param('value') value: string, @Param('key') key: string){
+        return this.validationService.validate(value, key);
+    }
 }

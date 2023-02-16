@@ -6,6 +6,8 @@ import {ValidationEntity} from "./validation/validation.entity";
 import {GroupEntity} from "./group/group.entity";
 import {ValidationModule} from "./validation/validation.module";
 import {GroupModule} from "./group/group.module";
+import { ExceptionService } from './exception/exception.service';
+import { ExceptionModule } from './exception/exception.module';
 
 @Module({
   imports: [
@@ -24,6 +26,7 @@ import {GroupModule} from "./group/group.module";
       }),
       ValidationModule,
       GroupModule,
+      ExceptionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
