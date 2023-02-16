@@ -31,7 +31,7 @@
 ```bash
 $ npm install
 ```
-
+and connect mysql database
 ## Running the app
 
 ```bash
